@@ -1,0 +1,17 @@
+<div class="blog-box">
+    <div class="blog-content">
+        <a class="post-title" href="{{ path('article_'~post.getId()) }}">{{ post.getTitle()|raw }}</a>
+        <ul class="post-meta">
+            <li> <span class="fa fa-user green-color"></span> <a href="#">My Admin</a> </li>
+            <li> <span class="fa fa-clock-o pink-color"></span> <a href="#">6 Days Ago </a> </li>
+            <li> <span class="fa  fa-comment blue-color"></span> <a href="#">10</a> </li>
+        </ul>
+        <hr class="fullwidth-divider">
+        <div class="post-detail">
+            <p>{{ post.getExcerpt()|raw }}</p>
+        </div>
+        <div class="read-more">
+            <a href="#" class="blue-btn btn"> Read More <i class="fa fa-caret-right"></i> </a>
+        </div>
+    </div>
+</div>

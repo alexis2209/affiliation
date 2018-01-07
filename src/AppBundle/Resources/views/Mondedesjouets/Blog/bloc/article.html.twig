@@ -1,0 +1,18 @@
+<!-- Posts Start -->
+<aside class="col-lg-9 col-md-9 col-sm-12 col-xs-12 r-full-width">
+    <div class="blog-post-wrap space-bottom-45">
+        <div class="blog-content">
+            <ul class="post-meta">
+                <li> <span class="fa fa-user green-color"></span> <a href="#">My Admin</a> </li>
+                <li> <span class="fa fa-clock-o pink-color"></span> <a href="#">6 Days Ago </a> </li>
+                <li> <span class="fa  fa-comment blue-color"></span> <a href="#">10</a> </li>
+            </ul>
+            <hr class="fullwidth-divider">
+            <div class="post-detail">
+                {{ post.getContent()|raw }}
+            </div>
+        </div>
+    </div>
+    {% include 'AppBundle:Mondedesjouets/Blog/bloc:comments.html.twig' with {'post': post} %}
+</aside>
+<!-- Posts Ends -->

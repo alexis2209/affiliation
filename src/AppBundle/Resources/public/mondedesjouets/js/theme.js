@@ -67,14 +67,6 @@ jQuery(document).ready(function () {
 
     });
 
-    var interval = null;
-
-    interval = setInterval(function () {
-        if ($("body:has(#preloader)")) {
-            document.getElementsByClassName("baby")[0].classList.toggle('down');
-        }
-    }, 500);
-
 
     // Sticky Header
     $(window).scroll(function () {

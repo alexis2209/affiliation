@@ -14,13 +14,13 @@ class BlogController extends Controller
      */
     public function indexAction(Request $request)
     {
-        //$posts = $this->get(Wordpress::class)->getAllPosts();
-
-
-
-        
+        $category = $this->get(Wordpress::class)->getCateg(6);
         // replace this example code with whatever you need
-        return $this->render('AppBundle:Mondedesjouets/Blog:index.html.twig');
+        return $this->render('AppBundle:Mondedesjouets/Blog:category.html.twig', array(
+            'base_dir' => realpath($this->container->getParameter('kernel.root_dir') . '/..') . DIRECTORY_SEPARATOR,
+            'category' => $category,
+            'posts' => $category->getPosts()
+        ));
     }
 
 

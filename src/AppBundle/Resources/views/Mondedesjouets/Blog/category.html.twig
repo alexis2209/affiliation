@@ -1,16 +1,26 @@
 {% extends 'AppBundle::Mondedesjouets/layout.html.twig' %}
 
 {% block breadcrumbs %}
-    <!-- Page Heading & Breadcrumbs  -->
-    <div class="page-heading-breadcrumbs">
-        <div class="container">
-            <h1 class="titleh1 funky-font blue-tag">{{ category.getTerm().getName() }}</h1>
-            <ol class="breadcrumb breadcrumb-menubar">
-                <li><a href="#">Home</a>  &gt;  <span class="blue-color"> {{ category.getTerm().getName() }} </span> </li>
-            </ol>
+    <!-- Breadcrumbs Start -->
+    <section class="breadcrumb-bg margin-bottom-80">
+        <span class="gray-color-mask color-mask"></span>
+        <div class="theme-container container">
+            <div class="site-breadcrumb relative-block space-75">
+                <h2 class="section-title">
+                            <span>
+                                <span class="funky-font blue-tag">News </span>
+                                <span class="italic-font">From Blog</span>
+                            </span>
+                </h2>
+                <h3 class="sub-title">{{ category.getTerm().getName() }}</h3>
+                <hr class="dash-divider">
+                <ol class="breadcrumb breadcrumb-menubar">
+                    <li><a href="#">Home</a>  &gt;  <span class="blue-color"> {{ category.getTerm().getName() }} </span> </li>
+                </ol>
+            </div>
         </div>
-    </div>
-    <!-- Page Heading & Breadcrumbs  -->
+    </section>
+    <!-- / Breadcrumbs Ends -->
 {% endblock %}
 
 {% block content %}
@@ -23,23 +33,9 @@
                 <aside class="col-lg-9 col-md-9 col-sm-12 col-xs-12 r-full-width">
                     <div class="blog-post-wrap space-bottom-45">
                         {% for post in posts %}
-                            <div class="blog-box">
-                                <div class="blog-content">
-                                    <a class="post-title" href="{{ path('article_'~post.getId()) }}">{{ post.getTitle()|raw }}</a>
-                                    <ul class="post-meta">
-                                        <li> <span class="fa fa-user green-color"></span> <a href="#">My Admin</a> </li>
-                                        <li> <span class="fa fa-clock-o pink-color"></span> <a href="#">6 Days Ago </a> </li>
-                                        <li> <span class="fa  fa-comment blue-color"></span> <a href="#">10</a> </li>
-                                    </ul>
-                                    <hr class="fullwidth-divider">
-                                    <div class="post-detail">
-                                        <p>{{ post.getExcerpt()|raw }}</p>
-                                    </div>
-                                    <div class="read-more">
-                                        <a href="#" class="blue-btn btn"> Read More <i class="fa fa-caret-right"></i> </a>
-                                    </div>
-                                </div>
-                            </div>
+
+                            {% include 'AppBundle:Mondedesjouets/Blog/bloc:article_list.html.twig' with {'post': post} %}
+
                         {% endfor %}
                     </div>
                 </aside>
