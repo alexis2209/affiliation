@@ -1,0 +1,55 @@
+<!-- Header -->
+<header class="light-bg">
+
+    <section class="header-wrapper header fixed">
+        <article class="header-middle">
+            <div class="container theme-container ">
+                <!-- Logo -->
+                <div class="logo col-md-6  col-sm-7">
+                    <a href="{{ path('homepage') }}"><img src="{{ asset('bundles/app/mondedesjouets/img/logo/logo.gif') }}" alt=" "/></a>
+                </div>
+                <!-- /Logo -->
+
+                <div class="header-right hidden-xs col-md-6  col-sm-5">
+                    <img style="float:right;" src="{{ asset('bundles/app/mondedesjouets/img/logo/header-right.jpg') }}" alt=" "/>
+                </div>
+
+            </div>
+        </article>
+
+        <article class="header-navigation">
+            <div class="container theme-container ">
+                <nav class="navbar navbar-default product-menu">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#product-menu" >
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse no-padding" id="product-menu">
+                        <ul class="nav navbar-nav">
+                            {% for item in menu %}
+                                {% if item.ssmenu is defined %}
+                                    <li class="dropdown">
+                                        <a href="{{ item.slug }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" >{{ item.titre|raw }} <span class="caret"></span></a>
+                                        <ul class="dropdown-menu ">
+                                            {% for ssitem in item.ssmenu %}
+                                                <li><a href="{{ ssitem.slug }}">{{ ssitem.titre|raw }}</a></li>
+                                            {% endfor %}
+                                        </ul>
+                                    </li>
+                                {% else %}
+                                    <li><a href="{{ item.slug }}">{{ item.titre|raw }}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </article>
+
+    </section>
+</header>
+<!-- /Header -->

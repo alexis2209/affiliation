@@ -1,0 +1,54 @@
+{% extends 'AppBundle::Mondedesjouets/layout.html.twig' %}
+
+{% block breadcrumbs %}
+    <!-- Page Heading & Breadcrumbs  -->
+    <div class="page-heading-breadcrumbs">
+        <div class="container">
+            <h1 class="titleh1 funky-font blue-tag">{{ category.getTerm().getName() }}</h1>
+            <ol class="breadcrumb breadcrumb-menubar">
+                <li><a href="#">Home</a>  &gt;  <span class="blue-color"> {{ category.getTerm().getName() }} </span> </li>
+            </ol>
+        </div>
+    </div>
+    <!-- Page Heading & Breadcrumbs  -->
+{% endblock %}
+
+{% block content %}
+    <!-- Blog -->
+    <div class="theme-padding white-bg">
+        <div class="container">
+            <div class="row">
+
+                <!-- Posts Start -->
+                <aside class="col-lg-9 col-md-9 col-sm-12 col-xs-12 r-full-width">
+                    <div class="blog-post-wrap space-bottom-45">
+                        {% for post in posts %}
+                            <div class="blog-box">
+                                <div class="blog-content">
+                                    <a class="post-title" href="{{ path('article_'~post.getId()) }}">{{ post.getTitle()|raw }}</a>
+                                    <ul class="post-meta">
+                                        <li> <span class="fa fa-user green-color"></span> <a href="#">My Admin</a> </li>
+                                        <li> <span class="fa fa-clock-o pink-color"></span> <a href="#">6 Days Ago </a> </li>
+                                        <li> <span class="fa  fa-comment blue-color"></span> <a href="#">10</a> </li>
+                                    </ul>
+                                    <hr class="fullwidth-divider">
+                                    <div class="post-detail">
+                                        <p>{{ post.getExcerpt()|raw }}</p>
+                                    </div>
+                                    <div class="read-more">
+                                        <a href="#" class="blue-btn btn"> Read More <i class="fa fa-caret-right"></i> </a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </aside>
+                <!-- Posts Ends -->
+
+                {{ render(controller('AppBundle:Partials:sidebar',  {} )) }}
+
+            </div>
+        </div>
+    </div>
+    <!-- Blog -->
+{% endblock %}

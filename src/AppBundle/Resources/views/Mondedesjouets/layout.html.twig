@@ -1,0 +1,47 @@
+{% extends 'base_mondedesjouets.html.twig' %}
+{% block head_style %}
+    {% stylesheets
+    'bundles/app/mondedesjouets/plugins/bootstrap/css/bootstrap.min.css'
+    'bundles/app/mondedesjouets/css/style.css'
+    'bundles/app/mondedesjouets/css/media.css'
+    'bundles/app/mondedesjouets/plugins/owl-carousel/owl.carousel.css'
+    'bundles/app/mondedesjouets/plugins/owl-carousel/owl.theme.css'
+    'bundles/app/mondedesjouets/plugins/bootstrap-select/css/bootstrap-select.min.css'
+    'bundles/app/mondedesjouets/plugins/jquery-ui-1.11.4.custom/jquery-ui.min.css'
+    'bundles/app/mondedesjouets/css/subscribe-better.css'
+    'bundles/app/mondedesjouets/plugins/font-awesome/css/font-awesome.min.css'
+    filter='cssrewrite' %}
+    <link href="{{ asset_url }}" rel="stylesheet">
+    {% endstylesheets %}
+{% endblock head_style %}
+
+
+{% block foot_script_assetic %}
+    {% javascripts
+    '@AppBundle/Resources/public/mondedesjouets/plugins/jquery/jquery-1.11.3.min.js'
+    '@AppBundle/Resources/public/mondedesjouets/plugins/jquery-ui-1.11.4.custom/jquery-ui.min.js'
+    '@AppBundle/Resources/public/mondedesjouets/plugins/bootstrap/js/bootstrap.min.js'
+    '@AppBundle/Resources/public/mondedesjouets/plugins/owl-carousel/owl.carousel.min.js'
+    '@AppBundle/Resources/public/mondedesjouets/plugins/bootstrap-select/js/bootstrap-select.min.js'
+    '@AppBundle/Resources/public/mondedesjouets/js/jquery.subscribe-better.js'
+    '@AppBundle/Resources/public/mondedesjouets/js/moment-with-locales.min.js'
+    '@AppBundle/Resources/public/mondedesjouets/plugins/countdown/jquery.plugin.min.js'
+    '@AppBundle/Resources/public/mondedesjouets/plugins/countdown/jquery.countdown.min.js'
+    '@AppBundle/Resources/public/mondedesjouets/js/theme.js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}" ></script>
+    {% endjavascripts %}
+{% endblock foot_script_assetic %}
+
+{% block header %}
+    {{ render(controller('AppBundle:Partials:header',  {} )) }}
+{% endblock %}
+
+
+{% block footer %}
+    {{ render(controller('AppBundle:Partials:footer',  {} )) }}
+
+    <div id="to-top" class="to-top"><i class="fa fa-angle-up"></i></div>
+{% endblock %}
+
+
